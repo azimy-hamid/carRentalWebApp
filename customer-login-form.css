@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.login-signup-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbc257 !important;
+}
+
+.container {
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  background-color: #fff;
+  padding: 40px 30px !important;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  perspective: 2700px;
+}
+
+.container .cover {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 98;
+  height: 100%;
+  width: 50%;
+  transition: all 1s ease;
+  transform-style: preserve-3d;
+  transform-origin: left;
+}
+
+.container .cover::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #341413;
+}
+
+.container #flip:checked ~ .cover {
+  transform: rotateY(-180deg);
+}
+
+.container .cover img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 12;
+  transition: visibility 0s linear 0.3s, opacity 1s ease; 
+  opacity: 1;
+}
+
+.container .cover .back .back-img {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s, opacity 1s ease; 
+  transform: rotateY(180deg);
+}
+
+.container #flip:checked ~ .cover .front img {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 1s ease; 
+}
+
+.container #flip:checked ~ .cover .back img {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s linear 0s, opacity 1s ease; 
+}
+
+.container #flip:not(:checked) ~ .cover .back img {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 1s ease; 
+}
+
+.container #flip:not(:checked) ~ .cover .front img {
+  opacity: 1;
+  visibility: visible !important;
+  transition: visibility 0s linear 0s, opacity 1s ease; 
+}
+
+.container .form {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+
+.container .form-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .signup-form {
+  width: calc(100% / 2 - 25px);
+}
+
+.form .form-content .title {
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #341413;
+}
+
+.form .form-content .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background-color: #341413;
+}
+
+.form .form-content .signup-form .title::before {
+  width: 20px;
+}
+
+.form .form-content .input-boxes {
+  margin-top: 50px;
+}
+
+.form .form-content .input-box {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+
+.form-content .input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.form-content .input-box input:focus,
+.form-content .input-box input:valid {
+  border-color: #341413;
+}
+
+.form-content .input-box i {
+  position: absolute;
+  color: #341413;
+  font-size: 16px;
+}
+
+.form .form-content .input-boxes .button {
+  color: #fff;
+  margin-top: 40px;
+}
+
+.form .form-content .text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form .form-content .text a {
+  text-decoration: none;
+}
+
+.form .form-content .text a:hover {
+  text-decoration: underline;
+}
+
+.form .form-content .input-boxes .button input {
+  color: #fff;
+  background: #341413 !important;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4 ease;
+  border-bottom: none;
+}
+
+.form .form-content .input-boxes .button input:hover {
+  background: #fbc257 !important;
+  color: #341413;
+}
+
+.form .form-content label {
+  color: #fbc257;
+  cursor: pointer;
+}
+
+.form .form-content label:hover {
+  text-decoration: underline;
+}
+
+.form .form-content .sign-up-text,
+.form .form-content .login-text {
+  margin-top: 25px;
+}
